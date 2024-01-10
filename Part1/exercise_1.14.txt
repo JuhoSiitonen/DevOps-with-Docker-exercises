@@ -1,0 +1,29 @@
+Backend
+FROM golang:latest
+  
+WORKDIR /usr/src/app
+
+COPY . .
+
+ENV REQUEST_ORIGIN=http://localhost:3001
+
+RUN go build
+
+CMD ./server
+
+docker build . -t backend
+docker run -p 3000:8080 backend
+
+Frontend 
+FROM node:16
+  
+WORKDIR /usr/src/app
+
+COPY . .
+RUN npm install
+RUN REACT_APP_BACKEND_URL=http://localhost:3000/ npm run build
+RUN npm install -g serve
+CMD serve -s -l 5000 build
+
+docker build . -t Frontend
+docker run -p 3001:5000 frontend

@@ -1,0 +1,4 @@
+https://hub.docker.com/r/juhosii/frontend
+
+This is not the frontend from exercises this is for my Fullstackopen containers 
+Bloglistapp containerization.

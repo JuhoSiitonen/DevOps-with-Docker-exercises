@@ -1,0 +1,12 @@
+FROM golang:latest
+  
+WORKDIR /usr/src/app
+
+COPY . .
+
+RUN go build
+
+CMD ./server
+
+docker build . -t backend
+docker run -p 3000:8080 backend

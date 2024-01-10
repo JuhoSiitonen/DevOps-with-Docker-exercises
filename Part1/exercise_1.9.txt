@@ -1,0 +1,13 @@
+2024-01-10 17:30:25 +0000 UTC
+2024-01-10 17:30:27 +0000 UTC
+2024-01-10 17:30:29 +0000 UTC
+2024-01-10 17:30:31 +0000 UTC
+2024-01-10 17:30:33 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+2024-01-10 17:30:35 +0000 UTC
+2024-01-10 17:30:37 +0000 UTC
+
+
+command was: 
+
+docker run -v "$(pwd)/exercise_1.9.txt:/usr/src/app/text.log" devopsdockeruh/simple-web-service:alpine2024-01-10 17:31:09 +0000 UTC
