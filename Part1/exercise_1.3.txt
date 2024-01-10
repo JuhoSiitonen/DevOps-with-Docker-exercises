@@ -1,0 +1,11 @@
+juho@JuhonAcer:~/DevOpsWithDocker/Part1$ docker exec -it c50 bash
+root@c50a9327d7d8:/usr/src/app# tail -f ./text.log
+2024-01-10 11:57:02 +0000 UTC
+2024-01-10 11:57:04 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+2024-01-10 11:57:06 +0000 UTC
+2024-01-10 11:57:08 +0000 UTC
+2024-01-10 11:57:10 +0000 UTC
+2024-01-10 11:57:12 +0000 UTC
+2024-01-10 11:57:14 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
