@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: example-frontend
+    build: ./example-frontend/
+    ports:
+      - 3001:5000
+  backend:
+    image: example-backend
+    build: ./example-backend/
+    ports:
+      - 3000:8080

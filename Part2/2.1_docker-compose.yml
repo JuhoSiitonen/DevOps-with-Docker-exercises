@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  web-service:
+    image: devopsdockeruh/simple-web-service
+    volumes: 
+      - ./exercise_2.1.txt:/usr/src/app/text.log
+    
