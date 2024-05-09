@@ -1,0 +1,4 @@
+https://github.com/JuhoSiitonen/Receptify/tree/main
+
+It does not deploy on every push, but that is a design choice. 
+And isn't it more difficult to have it run only on tags? :)
