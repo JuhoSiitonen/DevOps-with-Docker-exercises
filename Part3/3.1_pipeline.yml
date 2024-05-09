@@ -1,0 +1,5 @@
+Watchtower command:
+docker run --name watchtower -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower devopsdocker --interval 60
+
+Express-app repo link:
+https://github.com/JuhoSiitonen/DevOpsWithDocker-express_example
