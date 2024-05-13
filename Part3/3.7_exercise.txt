@@ -1,0 +1,59 @@
+Before optimizing
+Frontend 418.55mb
+Backend 470.11
+
+Dockerfiles before changes:
+
+Frontend
+
+FROM alpine:3.16.0
+  
+WORKDIR /usr/src/app
+
+COPY . .
+RUN apk add --no-cache curl nodejs npm && npm install && npm run build && npm install -g serve && apk del curl && rm -rf /var/lib/apt/lists/*
+USER node
+CMD serve -s -l 5000 build
+
+---------------------------
+
+Backend (already using Golang and Alpine)
+
+FROM golang:alpine
+  
+WORKDIR /usr/src/app
+
+COPY . .
+RUN go build && addgroup -S usergroup && adduser -S Juho -G usergroup
+USER Juho
+CMD ./server
+
+---------------------------
+
+After optimizing!!
+Frontend 481.28mb
+Backend 470.11mb
+
+Frontend after switching to specified alpine variant  
+
+FROM node:16-alpine3.18
+WORKDIR /usr/src/app
+EXPOSE 5000
+
+COPY . .
+RUN npm install && npm run build && npm install -g serve && adduser -D Juho && rm -rf /var/lib/apt/lists/*
+USER Juho
+CMD serve -s -l 5000 build
+
+---------------------------
+
+Backend, no changes as it is already using an alpine variant tag
+
+FROM golang:alpine
+  
+WORKDIR /usr/src/app
+
+COPY . .
+RUN go build && addgroup -S usergroup && adduser -S Juho -G usergroup
+USER Juho
+CMD ./server

@@ -1,0 +1,21 @@
+FROM node:16
+  
+WORKDIR /usr/src/app
+
+COPY . .
+RUN npm install
+RUN npm run build
+RUN npm install -g serve
+USER node
+CMD serve -s -l 5000 build
+
+-------------------------------------------------------------
+FROM golang:alpine
+  
+WORKDIR /usr/src/app
+
+COPY . .
+RUN go build
+RUN addgroup -S usergroup && adduser -S Juho -G usergroup
+USER Juho
+CMD ./server
