@@ -1,0 +1,20 @@
+Dockerfile:
+
+FROM docker:25-git
+WORKDIR /usr/src/app
+COPY builder.sh .
+RUN chmod +x builder.sh
+ENTRYPOINT ["./builder.sh"]
+
+Builder.sh
+
+#!/bin/sh
+git clone https://github.com/$1.git ./build_folder
+cd build_folder
+docker build . -t $2
+docker login --username $3 --password $4
+docker push $2
+
+Commands to run:
+
+docker run -v /var/run/docker.sock:/var/run/docker.sock builder mluukkai/express_app juhosii/devopsdocker <username> <password>
